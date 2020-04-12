@@ -4,15 +4,16 @@
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-3">
       <select (change)="onSelect($event.target.value)" 
               class="custom-select">
-        <option *ngFor="let query of queryOptions" 
-                 >{{query}}</option>
+        <option *ngFor="let form of forms" 
+                 >{{form.query}}</option>
       </select>
     </div>
-    <div class="col-sm-9">
-      <!-- form -->
+    <div class="col-sm-9 text-center">
+      <!-- Inject Form Here -->
+      <ng-template form-directive></ng-template>
     </div>
   </div>
   <div class="row">
