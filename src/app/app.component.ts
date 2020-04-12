@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ComponentFactoryResolver } from '@angular/core';
-import { FormDisplayService } from './form-display.service';
+import { FormDisplayService } from './forms/form-display.service';
 import { FormItem } from './form-item';
 import { FormDirective } from './form.directive';
 

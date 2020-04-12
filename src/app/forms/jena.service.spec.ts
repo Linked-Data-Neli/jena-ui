@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { FormDisplayService } from './form-display.service';
+import { JenaService } from './jena.service';
 
-describe('FormDisplayService', () => {
-  let service: FormDisplayService;
+describe('JenaService', () => {
+  let service: JenaService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(FormDisplayService);
+    service = TestBed.inject(JenaService);
   });
 
   it('should be created', () => {
