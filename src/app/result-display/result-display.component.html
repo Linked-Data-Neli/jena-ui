@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+        <div *ngIf="isReadyToDisplay && display.head.length > 0">
+            <h2>{{display.title}}</h2>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <th *ngFor="let thead of display.head"
+                             scope="col">
+                        {{thead}}    
+                        </th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of display.data">
+                            <td *ngFor="let entry of data">
+                                {{entry.val}}
+                            </td>
+                      </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
