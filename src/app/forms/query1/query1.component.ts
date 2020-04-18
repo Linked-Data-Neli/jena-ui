@@ -32,12 +32,9 @@ export class Query1Component implements OnInit {
                     .subscribe(
                       data => {
                         console.log('Data in query component', data);
-                        let title;
-                        if(data.results.bindings.length > 0) {
-                          title =`${firstName + ' ' + lastName}'s Details`;
-                        } else {
-                          title = `No Details found for ${firstName + ' ' + lastName}`;
-                        }
+                        let title = this.displayService.getDisplayTitle(data,
+                                        `${firstName + ' ' + lastName}'s Details`,
+                                        `No Details found for ${firstName + ' ' + lastName}`);
                         // format to get enrolled data shorter
                         for(let res of data.results.bindings) {
                           let enrolled = res.enrolled.value;

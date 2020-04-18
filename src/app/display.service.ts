@@ -36,4 +36,14 @@ export class DisplayService {
     display.data = data.results.bindings;
     return display;
   }
+
+  getDisplayTitle(res: Response<any>, okMessage: string, emptyMessage: string): string {
+    let title;
+    if(res.results.bindings.length > 0) {
+      title = okMessage;
+    } else {
+        title = emptyMessage;
+    }
+    return title;
+  }
 }

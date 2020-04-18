@@ -27,18 +27,17 @@ export class Query2Component implements OnInit {
                     .subscribe(
                       data => {
                         console.log('Data in course details comp', data);
-                        let title;
-                        if(data.results.bindings.length > 0) {
-                          title = `${courseId}'s Details`;
-                        } else {
-                          title = `No Details found for ${courseId}`;
-                        }
+                        let title = this.displayService.getDisplayTitle(data,
+                          `${courseId}'s Details`,
+                          `No Details found for ${courseId}`);
 
                         for(let res of data.results.bindings) {
-                          let preReq = res.prerequisite.value;
-                          if(preReq) {
-                            preReq = preReq.split("#")[1];
-                            res.prerequisite.value = preReq;
+                          if(res.prerequisite) {
+                            let preReq = res.prerequisite.value;
+                            if(preReq) {
+                              preReq = preReq.split("#")[1];
+                              res.prerequisite.value = preReq;
+                            }
                           }
                         }
 
