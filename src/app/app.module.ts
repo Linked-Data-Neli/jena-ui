@@ -6,13 +6,15 @@ import { Query1Component } from './forms/query1/query1.component';
 import { FormDirective } from './form.directive';
 import { HttpClientModule } from '@angular/common/http';
 import { ResultDisplayComponent } from './result-display/result-display.component';
+import { Query2Component } from './forms/query2/query2.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     Query1Component,
     FormDirective,
-    ResultDisplayComponent
+    ResultDisplayComponent,
+    Query2Component
   ],
   imports: [
     BrowserModule,

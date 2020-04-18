@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Response } from './api-response/Response';
 import { Query1Response } from './api-response/Query1Response';
+import { Query2Response } from './api-response/Query2Response';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -10,10 +11,17 @@ import { Observable } from 'rxjs';
 export class JenaService {
   private url = 'http://localhost:8080/select';
   private query1 = '/student-details';
+  private query2 = '/course-details';
+
   constructor(private http: HttpClient) { }
 
   public getQuery1Response(firstName: string, lastName: string): Observable<Response<Query1Response>> {
     let reqUrl = `${this.url + this.query1}?firstName=${firstName}&lastName=${lastName}`;
     return this.http.get<Response<Query1Response>>(reqUrl);
+  }
+
+  public getQuery2Response(courseId: string): Observable<Response<Query2Response>> {
+    let reqUrl = `${this.url + this.query2}?courseId=${courseId}`;
+    return this.http.get<Response<Query2Response>>(reqUrl);
   }
 }
