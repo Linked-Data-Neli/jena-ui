@@ -1,0 +1,9 @@
+<form [formGroup]="form" (submit)="onSubmit()">
+    <div class="form-group">
+        <label>
+            LastName:
+            <input type="text" class="form-control" formControlName="lastName">
+        </label>
+    </div>
+    <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Submit</button>
+</form>
