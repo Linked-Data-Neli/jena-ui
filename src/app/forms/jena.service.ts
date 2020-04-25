@@ -4,6 +4,7 @@ import { Response } from './api-response/Response';
 import { Query1Response } from './api-response/Query1Response';
 import { Query2Response } from './api-response/Query2Response';
 import { Query3Response } from './api-response/Query3Response';
+import { Query4Response } from './api-response/Query4Response';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -14,6 +15,7 @@ export class JenaService {
   private query1 = '/student-details';
   private query2 = '/course-details';
   private query3 = '/faculty-details';
+  private query4 = '/book-details';
 
   constructor(private http: HttpClient) { }
 
@@ -33,4 +35,8 @@ export class JenaService {
     return this.http.get<Response<Query3Response>>(reqUrl);
   }
 
+  public getQuery4Response(bookName: string): Observable<Response<Query4Response>> {
+    let reqUrl = `${this.url + this.query4}?bookName=${bookName}`;
+    return this.http.get<Response<Query4Response>>(reqUrl);
+  }
 }

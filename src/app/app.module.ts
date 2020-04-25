@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ResultDisplayComponent } from './result-display/result-display.component';
 import { Query2Component } from './forms/query2/query2.component';
 import { Query3Component } from './forms/query3/query3.component';
+import { Query4Component } from './forms/query4/query4.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { Query3Component } from './forms/query3/query3.component';
     FormDirective,
     ResultDisplayComponent,
     Query2Component,
-    Query3Component
+    Query3Component,
+    Query4Component
   ],
   imports: [
     BrowserModule,
