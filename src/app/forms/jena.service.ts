@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class JenaService {
-  private url = 'http://localhost:8080/select';
+  private url: string;
   private query1 = '/student-details';
   private query2 = '/course-details';
   private query3 = '/faculty-details';
@@ -21,7 +21,17 @@ export class JenaService {
   private query5 = '/student-events';
   private query6 = '/student-graduating';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.setUrl();
+  }
+
+  private setUrl() {
+    if(window.location.href.indexOf("localhost") != -1) {
+      this.url = 'http://localhost:8080/select'; 
+    } else {
+      this.url = 'https://jena-rest-service.herokuapp.com/select';
+    }
+  }
 
   public getQuery1Response(firstName: string, lastName: string): Observable<Response<Query1Response>> {
     let reqUrl = `${this.url + this.query1}?firstName=${firstName}&lastName=${lastName}`;
