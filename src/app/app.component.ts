@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild, ComponentFactoryResolver } from '@angular
 import { FormDisplayService } from './forms/form-display.service';
 import { FormItem } from './form-item';
 import { FormDirective } from './form.directive';
+import { DisplayService } from './display.service';
+import { Display } from './forms/Display';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +17,7 @@ export class AppComponent implements OnInit {
   forms: FormItem[] = [];
 
   constructor(private formDisplayService: FormDisplayService,
+              private displayService: DisplayService,
               private componentFactoryResolver: ComponentFactoryResolver) { }
 
   ngOnInit() {
@@ -26,6 +29,7 @@ export class AppComponent implements OnInit {
   onSelect(query: string) {
     console.log(`User selected ${query}`);
     this.loadForm(query);
+    this.displayService.clearDisplay();
   }
 
   /**

@@ -10,6 +10,7 @@ import { Query2Component } from './forms/query2/query2.component';
 import { Query3Component } from './forms/query3/query3.component';
 import { Query4Component } from './forms/query4/query4.component';
 import { Query5Component } from './forms/query5/query5.component';
+import { Query6Component } from './forms/query6/query6.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { Query5Component } from './forms/query5/query5.component';
     Query2Component,
     Query3Component,
     Query4Component,
-    Query5Component
+    Query5Component,
+    Query6Component
   ],
   imports: [
     BrowserModule,

@@ -46,4 +46,8 @@ export class DisplayService {
     }
     return title;
   }
+  
+  clearDisplay(): void {
+    this.nextDisplayMessage(this.empty);
+  }
 }

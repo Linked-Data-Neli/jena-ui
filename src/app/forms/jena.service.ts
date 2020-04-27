@@ -6,6 +6,7 @@ import { Query2Response } from './api-response/Query2Response';
 import { Query3Response } from './api-response/Query3Response';
 import { Query4Response } from './api-response/Query4Response';
 import { Query5Response } from './api-response/Query5Response';
+import { Query6Response } from './api-response/Query6Response';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -18,6 +19,7 @@ export class JenaService {
   private query3 = '/faculty-details';
   private query4 = '/book-details';
   private query5 = '/student-events';
+  private query6 = '/student-graduating';
 
   constructor(private http: HttpClient) { }
 
@@ -45,5 +47,10 @@ export class JenaService {
   public getQuery5Response(firstName: string, lastName: string): Observable<Response<Query5Response>> {
     let reqUrl = `${this.url + this.query5}?firstName=${firstName}&lastName=${lastName}`;
     return this.http.get<Response<Query5Response>>(reqUrl);
+  }
+
+  public getQuery6Response(year: number): Observable<Response<Query6Response>> {
+    let reqUrl = `${this.url + this.query6}?year=${year}`;
+    return this.http.get<Response<Query6Response>>(reqUrl);
   }
 }
