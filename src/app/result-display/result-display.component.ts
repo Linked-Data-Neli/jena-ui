@@ -22,13 +22,34 @@ export class ResultDisplayComponent implements OnInit {
           let values = [];
           for(let d of message.data) {
             let bindings = [];
-            for(let [key, value] of Object.entries(d)) {
+            let entries = Object.entries(d);
+
+            for(let i = 0; i < entries.length; i++) {
+              let [key, value] = entries[i];
               let bo = <BindingObject>value;
               let val = bo.value;
-              bindings.push({key, val});
+              let entry = {key, val};
+
+              if(entry.key === message.head[i]) {
+                bindings.push(entry);
+              } else {
+                // if row key doesn't match thead key
+                // push empty val and keep iterating to fill in blank spots
+                for(let j = i; j < message.head.length; j++) {
+                  if(entry.key === message.head[j]) {
+                    bindings.push(entry);
+                    break;
+                  } else {
+                    let str = '';
+                    let empty = {key, str}
+                    bindings.push(empty);
+                  }
+                }
+              }
             }
             values.push(bindings);
           }
+
           this.display = {title: message.title, head: message.head, data: values};
           console.log('Display', this.display);
           this.isReadyToDisplay = true;
